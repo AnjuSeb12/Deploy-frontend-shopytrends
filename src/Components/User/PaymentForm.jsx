@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import axios from 'axios';
+import instance from '../../axios';
+
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
@@ -30,8 +31,8 @@ const PaymentForm = ({ clientSecret }) => {
 
         if (paymentIntent.status === 'succeeded') {
             try {
-                const response = await axios.post(
-                    'http://localhost:4000/api/v1/orders/verify-payment',
+                const response = await instance.post(
+                    'api/v1/orders/verify-payment',
                     { paymentIntentId: paymentIntent.id },
                     {
                         withCredentials: true,

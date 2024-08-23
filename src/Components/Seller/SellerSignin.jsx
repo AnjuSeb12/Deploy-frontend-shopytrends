@@ -2,11 +2,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { authSellerSuccess } from "../../redux/sellerAuthentication";
 import { useDispatch } from "react-redux";
+import instance from "../../axios";
+
 
 
 
@@ -37,8 +38,8 @@ const SellerSignin = () => {
   const onSubmit = async (data) => {
     
     try {
-      const res = await axios.post(
-        "http://localhost:4000/api/v1/seller/sellerlogin",
+      const res = await instance.post(
+        "api/v1/seller/sellerlogin",
         data,
         {
           withCredentials: true,

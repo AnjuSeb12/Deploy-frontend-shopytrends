@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+
+import instance from '../../axios';
 
 const OrderList = () => {
     const [orders, setOrders] = useState([]);
@@ -7,7 +8,7 @@ const OrderList = () => {
     // Function to fetch orders
     const fetchOrders = async () => {
         try {
-            const response = await axios.get('http://localhost:4000/api/v1/orders/allorders');
+            const response = await instance.get('api/v1/orders/allorders');
             console.log(response.data.orders)
             setOrders(response.data.orders);
         } catch (error) {

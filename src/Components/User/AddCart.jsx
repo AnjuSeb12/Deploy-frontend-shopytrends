@@ -1,9 +1,10 @@
 
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import instance from '../../axios';
+
 
 const AddCart = ({ product, quantity = 1, disabled }) => {
   const [isAdding, setIsAdding] = useState(false);
@@ -11,8 +12,8 @@ const AddCart = ({ product, quantity = 1, disabled }) => {
   const handleAddToCart = async (productId) => {
     setIsAdding(true);
     try {
-      await axios.post(
-        `http://localhost:4000/api/v1/cart/addcart/${productId}`,
+      await instance.post(
+        `api/v1/cart/addcart/${productId}`,
         { quantity },
         { withCredentials: true }
       );

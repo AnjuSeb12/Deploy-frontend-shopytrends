@@ -1,11 +1,12 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import instance from "../../axios";
+
 
 
 const schema = yup
@@ -39,7 +40,7 @@ const ProductsAdd = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/v1/category/categories');
+        const response = await instance.get('api/v1/category/categories');
         setCategories(response.data.categories);
       } catch (error) {
         console.error('Error fetching categories:', error);
@@ -80,7 +81,7 @@ const ProductsAdd = () => {
     formData.append('stock', data.stock);
 
     try {
-      const response = await axios.post("http://localhost:4000/api/v1/product/addproduct", formData, {
+      const response = await instance.post("api/v1/product/addproduct", formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",

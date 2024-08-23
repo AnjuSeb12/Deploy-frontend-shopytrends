@@ -1,9 +1,4 @@
 import React from 'react';
-import SellerDashboardCaurosel from './SellerDashboardCaurosel';
-
-
-
-
 
 
 const SellerDashboard = () => {

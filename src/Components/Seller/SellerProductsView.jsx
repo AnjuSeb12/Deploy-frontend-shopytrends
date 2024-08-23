@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import instance from '../../axios';
 
 const SellerProductsView = () => {
   const [products, setProducts] = useState([]);
@@ -7,7 +7,7 @@ const SellerProductsView = () => {
   useEffect(() => {
     const getAllSellerProducts = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/v1/product/getsingleproduct`, {
+        const res = await instance.get(`api/v1/product/getsingleproduct`, {
           withCredentials: true,
           headers: {
             'Content-Type': 'multipart/form-data',

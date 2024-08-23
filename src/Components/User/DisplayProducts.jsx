@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap'
 
@@ -6,6 +5,8 @@ import { Card, Col, Container, Row, Button } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom';
 
 import AddCart from './AddCart';
+import instance from '../../axios';
+
 
 
 
@@ -17,7 +18,7 @@ const DisplayProducts = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/api/v1/product/getproducts');
+                const response = await instance.get('api/v1/product/getproducts');
                 setGetProducts(response.data.products);
 
             } catch (error) {

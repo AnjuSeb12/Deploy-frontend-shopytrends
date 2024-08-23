@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import instance from '../../axios';
 
 const OrderView = () => {
   const [orders, setOrders] = useState([]);
@@ -10,7 +10,7 @@ const OrderView = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/v1/orders/orderuser', {
+        const response = await instance.get('api/v1/orders/orderuser', {
           withCredentials: true,
         });
         
@@ -26,7 +26,7 @@ const OrderView = () => {
   const handleCancelOrder = async (orderId) => {
     try {
       
-      await axios.post(`http://localhost:4000/api/v1/orders/ordercancel/${orderId}`, {}, {
+      await instance.post(`api/v1/orders/ordercancel/${orderId}`, {}, {
         withCredentials: true,
       });
 
@@ -40,7 +40,7 @@ const OrderView = () => {
   const handleDeleteOrder = async (orderId) => {
     try {
         
-        await axios.delete(`http://localhost:4000/api/v1/orders/order/${orderId}`, {
+        await instance.delete(`api/v1/orders/order/${orderId}`, {
             withCredentials: true,
         });
 

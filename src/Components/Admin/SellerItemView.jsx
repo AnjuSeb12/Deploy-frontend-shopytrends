@@ -1,6 +1,7 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Box, Text, Flex, Image, useBreakpointValue } from '@chakra-ui/react';
+import instance from '../../axios';
+
 
 const SellerItemView = () => {
   const [products, setProducts] = useState([]);
@@ -8,7 +9,7 @@ const SellerItemView = () => {
   useEffect(() => {
     const getSellerProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/v1/product/getproducts", {
+        const res = await instance.get("api/v1/product/getproducts", {
           withCredentials: true,
           headers: {
             "Content-Type": "multipart/form-data",

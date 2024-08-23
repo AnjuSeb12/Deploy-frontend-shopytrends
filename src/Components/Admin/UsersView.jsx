@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import instance from '../../axios'
 
 const UsersView = () => {
     const [users, setUsers] = useState([])
@@ -8,7 +8,7 @@ const UsersView = () => {
     useEffect(() => {
         const getAllUsers = async () => {
             try {
-                const res = await axios.get("http://localhost:4000/api/v1/user/users", {
+                const res = await instance.get("api/v1/user/users", {
                     withCredentials: true,
                     headers: {
                         "Content-Type": "multipart/form-data",

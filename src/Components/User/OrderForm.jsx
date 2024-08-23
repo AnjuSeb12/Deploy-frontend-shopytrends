@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PaymentForm from './PaymentForm';
+import instance from '../../axios';
+
 
 const OrderForm = () => {
     const location = useLocation();
@@ -43,7 +44,7 @@ const OrderForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const { data } = await axios.post('http://localhost:4000/api/v1/orders/add', {
+        const { data } = await instance.post('api/v1/orders/add', {
             orderItems: orderItems.map(item => ({
                 productId: item.productId,
                 title: item.title,

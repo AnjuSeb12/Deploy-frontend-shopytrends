@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import instance from '../../axios';
+
 
 const SearchResult = () => {
   const [results, setResults] = useState([]);
@@ -11,7 +12,7 @@ const SearchResult = () => {
       const query = queryParams.get('query') || '';
 
       try {
-        const response = await axios.get('http://localhost:4000/api/v1/searches/search', {
+        const response = await instance.get('api/v1/searches/search', {
           params: { query },
         });
         setResults(response.data.searchItem || []);

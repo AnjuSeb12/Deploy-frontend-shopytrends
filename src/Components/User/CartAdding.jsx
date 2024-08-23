@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { FaPlus, FaMinus, FaTrash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import instance from '../../axios';
 
 const CartAdding = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const CartAdding = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/v1/cart/viewbyidcart', { withCredentials: true });
+        const response = await instance.get('api/v1/cart/viewbyidcart', { withCredentials: true });
         setCartItems(response.data.cartviewbyid.cartItems);
         
        
@@ -31,7 +31,7 @@ const CartAdding = () => {
 
   const handleRemoveFromCart = async (cartItemId) => {
     try {
-      await axios.delete(`http://localhost:4000/api/v1/cart/cartdelete/${cartItemId}`, { withCredentials: true });
+      await instance.delete(`api/v1/cart/cartdelete/${cartItemId}`, { withCredentials: true });
       setCartItems(cartItems.filter(item => item._id !== cartItemId));
       toast.success('Item removed from cart.');
     } catch (error) {
@@ -43,8 +43,8 @@ const CartAdding = () => {
   const handleUpdateQuantity = async (cartItemId, newQuantity) => {
     if (newQuantity < 1) return; 
     try {
-      const response = await axios.put(
-        `http://localhost:4000/api/v1/cart/updatecart/${cartItemId}`,
+      const response = await instance.put(
+        `api/v1/cart/updatecart/${cartItemId}`,
         { quantity: newQuantity },
         { withCredentials: true }
       );
@@ -65,7 +65,7 @@ const CartAdding = () => {
 
   const handleClearCart = async () => {
     try {
-      await axios.delete('http://localhost:4000/api/v1/cart/clear', { withCredentials: true });
+      await instance.delete('api/v1/cart/clear', { withCredentials: true });
       setCartItems([]);
       toast.success('Cart cleared.');
     } catch (error) {
