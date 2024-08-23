@@ -15,12 +15,12 @@ const OrderList = () => {
         }
     };
 
-    // Fetch orders on component mount and set up polling
+    
     useEffect(() => {
         fetchOrders();
-        const intervalId = setInterval(fetchOrders, 30000); // Refresh every 30 seconds
+        const intervalId = setInterval(fetchOrders, 30000); 
 
-        // Cleanup on component unmount
+        
         return () => clearInterval(intervalId);
     }, [setOrders]);
 
@@ -50,7 +50,7 @@ const OrderList = () => {
                                         <img
                                             src={item.productId.image}
                                             alt={item.productId.title}
-                                            className="w-20 h-20 object-cover rounded-lg"
+                                            className="w-20 h-20 object-fill rounded-lg"
                                         />
                                         <div className="ml-4">
                                             <h3 className="text-lg font-semibold">{item.productId.title}</h3>

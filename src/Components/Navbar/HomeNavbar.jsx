@@ -18,7 +18,7 @@ const HomeNavbar = () => {
   const [cartCount, setCartCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // const [type, setType] = useState('category');
+ 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
 

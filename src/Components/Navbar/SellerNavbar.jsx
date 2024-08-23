@@ -45,16 +45,16 @@ const SellerNavbar = () => {
             <Nav.Link as={Link} to="/seller/productsadd">Start Selling</Nav.Link>
             <Nav.Link as={Link} to="/seller/productsview">Products View</Nav.Link>
           </Nav>
-          <Nav className="ms-auto d-flex align-items-center">
+          <Nav className="ms-auto d-flex align-items-center ">
             {isAuthenticated ? (
-              <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
+              <Button variant="outline-light" onClick={handleLogout} className='mb-1'>Logout</Button>
             ) : (
               <Nav.Link as={Link} to="/seller/signup">
                 <Button variant="outline-light">Login</Button>
               </Nav.Link>
             )}
             <div className="theme-toggle-container">
-              <ThemeToggle />
+              <ThemeToggle  />
             </div>
           </Nav>
         </Navbar.Collapse>

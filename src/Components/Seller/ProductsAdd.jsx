@@ -139,7 +139,7 @@ const ProductsAdd = () => {
         </select>
         {errors.subcategory && <p>{errors.subcategory.message}</p>}
 
-        <input type="submit" className="rounded-md bg-blue-500 py-1 text-white" />
+        <input type="submit" className="rounded-md bg-green-500 py-1 text-white" />
       </form>
       <ToastContainer />
     </div>

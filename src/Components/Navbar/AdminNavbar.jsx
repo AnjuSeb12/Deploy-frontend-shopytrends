@@ -34,13 +34,18 @@ const AdminNavbar = () => {
             <Nav.Link as={Link} to="/admin/sellerview" className="text-white">Seller</Nav.Link>
             <Nav.Link as={Link} to="/admin/selleritemview" className="text-white">Seller Product</Nav.Link>
             <Nav.Link as={Link} to="/admin/orderview" className="text-white">User Order View</Nav.Link>
+          
             <Button
               onClick={handleLogout}
-              className="ml-3 text-white bg-green-600 hover:bg-green-700 font-semibold py-2 px-4 rounded"
+              className="ml-3 text-white bg-green-600 hover:bg-green-700 font-semibold py-1 px-1 rounded  mb-2 pl-0 "
             >
               Logout
             </Button>
-            <ThemeToggle className="ml-3 " />
+            <div className="ml-2 text-center">
+              <ThemeToggle />
+            </div>
+
+           
           </Nav>
         </Navbar.Collapse>
       </Container>

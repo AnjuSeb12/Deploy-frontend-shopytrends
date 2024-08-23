@@ -64,17 +64,17 @@ const OrderForm = () => {
 
     return (
         <div className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-md">
-            <h2 className="text-xl font-bold mb-4">Place Your Order</h2>
+            <h2 className="text-xl font-bold mb-4 text-black">Place Your Order</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 {orderItems.map((item, index) => (
                     <div key={index} className="space-y-2">
-                        <h3 className="text-lg font-semibold">{item.title}</h3>
+                        <h3 className="text-lg font-semibold text-black">{item.title}</h3>
                         <img
                             src={item.image}
                             alt={item.title}
                             className="w-full h-64 object-cover rounded-md mb-2"
                         />
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 text-black">
                             <input
                                 type="number"
                                 name="quantity"
