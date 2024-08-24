@@ -15,7 +15,7 @@ const CartAdding = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await instance.get('api/v1/cart/viewbyidcart', { withCredentials: true });
+        const response = await instance.get('/api/v1/cart/viewbyidcart', { withCredentials: true });
         setCartItems(response.data.cartviewbyid.cartItems);
         
        
@@ -31,7 +31,7 @@ const CartAdding = () => {
 
   const handleRemoveFromCart = async (cartItemId) => {
     try {
-      await instance.delete(`api/v1/cart/cartdelete/${cartItemId}`, { withCredentials: true });
+      await instance.delete(`/api/v1/cart/cartdelete/${cartItemId}`, { withCredentials: true });
       setCartItems(cartItems.filter(item => item._id !== cartItemId));
       toast.success('Item removed from cart.');
     } catch (error) {
@@ -44,7 +44,7 @@ const CartAdding = () => {
     if (newQuantity < 1) return; 
     try {
       const response = await instance.put(
-        `api/v1/cart/updatecart/${cartItemId}`,
+        `/api/v1/cart/updatecart/${cartItemId}`,
         { quantity: newQuantity },
         { withCredentials: true }
       );
@@ -65,7 +65,7 @@ const CartAdding = () => {
 
   const handleClearCart = async () => {
     try {
-      await instance.delete('api/v1/cart/clear', { withCredentials: true });
+      await instance.delete('/api/v1/cart/clear', { withCredentials: true });
       setCartItems([]);
       toast.success('Cart cleared.');
     } catch (error) {

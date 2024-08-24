@@ -32,7 +32,7 @@ const PaymentForm = ({ clientSecret }) => {
         if (paymentIntent.status === 'succeeded') {
             try {
                 const response = await instance.post(
-                    'api/v1/orders/verify-payment',
+                    '/api/v1/orders/verify-payment',
                     { paymentIntentId: paymentIntent.id },
                     {
                         withCredentials: true,

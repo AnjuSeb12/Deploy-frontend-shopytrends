@@ -8,7 +8,7 @@ const SellerView = () => {
   useEffect(() => {
     const getAllSellers = async () => {
       try {
-        const res = await instance.get("api/v1/seller/sellers", {
+        const res = await instance.get("/api/v1/seller/sellers", {
           withCredentials: true,
           headers: {
             "Content-Type": "multipart/form-data",

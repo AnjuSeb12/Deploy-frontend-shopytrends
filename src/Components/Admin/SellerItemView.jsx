@@ -9,7 +9,7 @@ const SellerItemView = () => {
   useEffect(() => {
     const getSellerProducts = async () => {
       try {
-        const res = await instance.get("api/v1/product/getproducts", {
+        const res = await instance.get("/api/v1/product/getproducts", {
           withCredentials: true,
           headers: {
             "Content-Type": "multipart/form-data",

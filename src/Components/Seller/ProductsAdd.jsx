@@ -40,7 +40,7 @@ const ProductsAdd = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await instance.get('api/v1/category/categories');
+        const response = await instance.get('/api/v1/category/categories');
         setCategories(response.data.categories);
       } catch (error) {
         console.error('Error fetching categories:', error);
@@ -81,7 +81,7 @@ const ProductsAdd = () => {
     formData.append('stock', data.stock);
 
     try {
-      const response = await instance.post("api/v1/product/addproduct", formData, {
+      const response = await instance.post("/api/v1/product/addproduct", formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",

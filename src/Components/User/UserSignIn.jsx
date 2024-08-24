@@ -36,7 +36,7 @@ const UserSignIn = () => {
 
     try {
       const res = await instance.post(
-        "api/v1/user/login",
+        "/api/v1/user/login",
         data,
         {
           withCredentials: true,

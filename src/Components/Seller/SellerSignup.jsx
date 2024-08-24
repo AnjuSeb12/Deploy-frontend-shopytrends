@@ -27,7 +27,7 @@ const SellerSignup = () => {
     const onSubmit = async (data) => {
         try {
           const res = await instance.post(
-            "api/v1/seller/sellersignup",
+            "/api/v1/seller/sellersignup",
             data,
             {
               withCredentials: true,

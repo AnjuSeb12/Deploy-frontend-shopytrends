@@ -39,7 +39,7 @@ const SellerSignin = () => {
     
     try {
       const res = await instance.post(
-        "api/v1/seller/sellerlogin",
+        "/api/v1/seller/sellerlogin",
         data,
         {
           withCredentials: true,

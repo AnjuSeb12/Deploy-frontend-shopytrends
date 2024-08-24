@@ -18,7 +18,7 @@ const DisplayProducts = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await instance.get('api/v1/product/getproducts');
+                const response = await instance.get('/api/v1/product/getproducts');
                 setGetProducts(response.data.products);
 
             } catch (error) {

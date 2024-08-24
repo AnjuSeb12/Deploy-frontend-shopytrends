@@ -22,11 +22,11 @@ const ProductDetail = () => {
             setLoading(true);
             try {
               
-                const productResponse = await instance.get(`api/v1/product/products/${id}`);
+                const productResponse = await instance.get(`/api/v1/product/products/${id}`);
                 setCurrentItem(productResponse.data);
 
                
-                const reviewsResponse = await instance.get(`api/v1/review/product/${id}`);
+                const reviewsResponse = await instance.get(`/api/v1/review/product/${id}`);
                 setReviews(reviewsResponse.data.reviews);
             } catch (error) {
                 console.error("Error fetching product or reviews:", error);
@@ -56,7 +56,7 @@ const ProductDetail = () => {
         e.preventDefault();
         setIsSubmittingReview(true);
         try {
-            const response = await instance.post(`api/v1/review/product/${id}`, {
+            const response = await instance.post(`/api/v1/review/product/${id}`, {
                 rating: newReview.rating,
                 comment: newReview.comment,
             }, { withCredentials: true });

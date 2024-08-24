@@ -8,7 +8,7 @@ const UsersView = () => {
     useEffect(() => {
         const getAllUsers = async () => {
             try {
-                const res = await instance.get("api/v1/user/users", {
+                const res = await instance.get("/api/v1/user/users", {
                     withCredentials: true,
                     headers: {
                         "Content-Type": "multipart/form-data",

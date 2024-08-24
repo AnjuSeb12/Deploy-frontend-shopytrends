@@ -12,7 +12,7 @@ const SearchResult = () => {
       const query = queryParams.get('query') || '';
 
       try {
-        const response = await instance.get('api/v1/searches/search', {
+        const response = await instance.get('/api/v1/searches/search', {
           params: { query },
         });
         setResults(response.data.searchItem || []);

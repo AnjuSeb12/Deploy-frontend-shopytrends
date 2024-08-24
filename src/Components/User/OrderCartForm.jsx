@@ -46,7 +46,7 @@ const OrderForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const { data } = await instance.post('api/v1/orders/add', {
+            const { data } = await instance.post('/api/v1/orders/add', {
                 orderItems,
                 shippingAddress
             }, { withCredentials: true });

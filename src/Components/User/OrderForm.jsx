@@ -44,7 +44,7 @@ const OrderForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const { data } = await instance.post('api/v1/orders/add', {
+        const { data } = await instance.post('/api/v1/orders/add', {
             orderItems: orderItems.map(item => ({
                 productId: item.productId,
                 title: item.title,

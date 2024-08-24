@@ -8,7 +8,7 @@ const OrderList = () => {
     // Function to fetch orders
     const fetchOrders = async () => {
         try {
-            const response = await instance.get('api/v1/orders/allorders');
+            const response = await instance.get('/api/v1/orders/allorders');
             console.log(response.data.orders)
             setOrders(response.data.orders);
         } catch (error) {

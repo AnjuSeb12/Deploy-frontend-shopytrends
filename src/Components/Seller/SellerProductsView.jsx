@@ -7,7 +7,7 @@ const SellerProductsView = () => {
   useEffect(() => {
     const getAllSellerProducts = async () => {
       try {
-        const res = await instance.get(`api/v1/product/getsingleproduct`, {
+        const res = await instance.get(`/api/v1/product/getsingleproduct`, {
           withCredentials: true,
           headers: {
             'Content-Type': 'multipart/form-data',

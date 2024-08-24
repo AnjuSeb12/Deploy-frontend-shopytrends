@@ -29,7 +29,7 @@ const UserSignup = () => {
        
         try {
             const res = await instance.post(
-                "api/v1/user/signup",
+                "/api/v1/user/signup",
                 data,
                 {
                     withCredentials: true,

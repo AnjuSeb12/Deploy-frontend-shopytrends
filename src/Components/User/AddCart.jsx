@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import instance from '../../axios';
 
 
+
 const AddCart = ({ product, quantity = 1, disabled }) => {
   const [isAdding, setIsAdding] = useState(false);
 
@@ -13,7 +14,7 @@ const AddCart = ({ product, quantity = 1, disabled }) => {
     setIsAdding(true);
     try {
       await instance.post(
-        `api/v1/cart/addcart/${productId}`,
+        `/api/v1/cart/addcart/${productId}`,
         { quantity },
         { withCredentials: true }
       );
