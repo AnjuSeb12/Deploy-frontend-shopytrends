@@ -34,7 +34,11 @@ const HomeNavbar = () => {
     const fetchCartCount = async () => {
       try {
         const response = await axios.get('http://localhost:4000/api/v1/cart/count', {
-          withCredentials: true,
+          withCredentials: true,  headers: {
+            'Accept': 'application/json, text/plain, */*',
+          },
+
+          
         });
         setCartCount(response.data.cartCount || 0);
       } catch (error) {
