@@ -9,7 +9,7 @@ import { authUserSuccess, userLogout } from '../../redux/userAuthentication';
 import Cookies from 'js-cookie';
 import { FiShoppingCart, FiSearch } from "react-icons/fi";
 import ThemeToggle from '../theme/ThemeToggle';
-import axios from 'axios';
+
 
 
 const HomeNavbar = () => {
@@ -33,7 +33,7 @@ const HomeNavbar = () => {
   useEffect(() => {
     const fetchCartCount = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/v1/cart/count', {
+        const response = await instance.get('/api/v1/cart/count', {
           withCredentials: true,  headers: {
             'Accept': 'application/json, text/plain, */*',
           },

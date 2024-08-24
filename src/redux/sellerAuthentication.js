@@ -14,13 +14,13 @@ const sellerAuthSlice=createSlice({
             console.log("user....",actions.payload)
             state.seller=actions.payload.seller;
             state.token=actions.payload.token;
-            // state.isAuthenticated=actions.payload.seller;
+          
             state.isAuthenticated=true;
 
         },
         sellerLogout:(state,actions) =>
         {
-            // console.log("user....",actions.payload)
+          
             state.seller=null;
             state.token=null;
             state.isAuthenticated=false;
