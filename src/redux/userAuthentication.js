@@ -17,7 +17,7 @@ const userAuthSlice=createSlice({
           
             state.isAuthenticated=true;
         },
-        userLogout:(state,actions) =>
+        userLogout:(state) =>
         {
           
             state.user=null;

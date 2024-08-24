@@ -23,10 +23,19 @@ const HomeNavbar = () => {
 
 
 
+  // useEffect(() => {
+  //   const token = Cookies.get('token');
+  //   if (token) {
+  //     dispatch(authUserSuccess(token));
+  //   }
+  // }, [dispatch]);
   useEffect(() => {
     const token = Cookies.get('token');
+    console.log('Token from cookies:', token);
     if (token) {
-      dispatch(authUserSuccess(token));
+      dispatch(authUserSuccess({ token }));
+    } else {
+      dispatch(userLogout());
     }
   }, [dispatch]);
 
@@ -58,23 +67,14 @@ const HomeNavbar = () => {
     }
   };
 
-  useEffect(()=>{
-    const handleLogout = () => {
-      dispatch(userLogout());
-      Cookies.remove("token");
-      setCartCount(0);
-      navigate("/user/signup");
-    };
-    handleLogout()
 
-  },[dispatch])
 
-  // const handleLogout = () => {
-  //   dispatch(userLogout());
-  //   Cookies.remove("token");
-  //   setCartCount(0);
-  //   navigate("/user/signup");
-  // };
+  const handleLogout = () => {
+    dispatch(userLogout());
+    Cookies.remove("token");
+    setCartCount(0);
+    navigate("/user/signup");
+  };
 
   return (
     <div>
