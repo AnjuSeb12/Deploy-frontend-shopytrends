@@ -9,6 +9,8 @@ import { authUserSuccess, userLogout } from '../../redux/userAuthentication';
 import Cookies from 'js-cookie';
 import { FiShoppingCart, FiSearch } from "react-icons/fi";
 import ThemeToggle from '../theme/ThemeToggle';
+import instance from '../../axios';
+
 
 
 
