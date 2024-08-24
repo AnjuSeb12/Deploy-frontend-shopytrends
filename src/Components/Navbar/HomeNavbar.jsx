@@ -65,6 +65,7 @@ const HomeNavbar = () => {
       setCartCount(0);
       navigate("/user/signup");
     };
+    handleLogout()
 
   },[dispatch])
 
